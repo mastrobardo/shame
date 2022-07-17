@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
     "cra-template-typescript-redux": "0.3.13",
+    "cypress": "^10.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,5 +33,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/redux-logger": "^3.0.9",
+    "sass": "^1.53.0"
   }
 }
