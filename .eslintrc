@@ -2,13 +2,12 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
-  "extends": ["airbnb-typescript", "plugin:prettier/recommended"],
+  "extends": ["airbnb-typescript"],
   "env": {
     "jest": true
   },
   "rules": {
     // Make prettier code formatting suggestions more verbose.
-    "prettier/prettier": ["warn"],
     // Disable <Fragment> => <> replacement. Feel free to change
     "react/jsx-fragments": "off",
     // Disable prefer default export

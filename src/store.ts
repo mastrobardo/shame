@@ -1,18 +1,17 @@
 // file: store.ts
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 
-import logger from 'redux-logger'
+import logger from 'redux-logger';
 
-const reducers = {
-}
+const reducers = {};
 
-const preloadedState = {
-}
-
+const preloadedState = {};
 
 const store = configureStore({
   reducers,
-  middleware:[logger], 
+  middleware: [logger],
   devTools: process.env.NODE_ENV !== 'production',
   preloadedState,
-})
+});
+
+export default store;
