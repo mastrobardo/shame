@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const GameDetailPage: React.FC = () => {
+export const GameDetailPage = () => {
 
   return (
     <>
