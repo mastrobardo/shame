@@ -2,10 +2,19 @@
   "name": "frontend-task-davide-arcinotti",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "moduleNameMapper": {
+      "^@components/(.*)": "<rootDir>/src/components/$1",
+      "^@interfaces/(.*)": "<rootDir>/src/interfaces/$1",
+      "^@pages/(.*)": "<rootDir>/src/pages/$1",
+      "^@service/(.*)": "<rootDir>/src/service/$1",
+      "^@assets/(.*)": "<rootDir>/src/assets/$1",
+      "^@utils/(.*)": "<rootDir>/src/utils/$1"
+    }
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
-    "cra-template-typescript-redux": "0.3.13",
-    "cypress": "^10.3.0",
+    "module-alias": "^2.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -17,7 +26,8 @@
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "fix": "eslint src --ext .js,.jsx,.ts,.tsx  --fix"
+    "fix": "eslint src --ext .js,.jsx,.ts,.tsx  --fix",
+    "start:server": "./start-data-server.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,10 +45,20 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "@types/redux-logger": "^3.0.9",
+    "@types/testing-library__react": "^10.2.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "cra-template-typescript-redux": "0.3.13",
+    "cypress": "^10.3.0",
+    "msw": "^0.44.2",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.2.1",
     "react-test-renderer": "^18.2.0",
+    "redux-thunk": "^2.4.1",
     "sass": "^1.53.0"
   }
 }
