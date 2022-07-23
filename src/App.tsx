@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
 import { GameDetailPage } from '@pages/GamePage';
 import { Home } from '@pages/Home';
 

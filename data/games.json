@@ -1,4 +1,4 @@
-[
+{"games": [
   {
     "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
     "name": "Book of Gems Megaways",
@@ -33350,4 +33350,4 @@
     "provider": "Yggdrasil",
     "gameType": "video_slots"
   }
-]
+]}
