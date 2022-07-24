@@ -11,6 +11,10 @@ export const handlers = [
   }),
 ];
 
+export const errorHandlers = [
+  rest.get('http://localhost:9000/games', (req, res, ctx) => res(ctx.status(500), ctx.json(null))),
+];
+
 const server = setupServer(...handlers);
 
 beforeAll(() => server.listen());
@@ -22,13 +26,20 @@ afterAll(() => server.close());
 test('GameList component should manage data fetch states', async () => {
   renderWithProviders(<GameList />);
 
-  // initial state: nothing started yet
-  expect(screen.getByText(/no data/i)).toBeInTheDocument();
-  expect(screen.queryByText(/Fetching data\.\.\./i)).not.toBeInTheDocument();
+  // initial state: start loading immediatly
+  expect(screen.queryByText(/Fetching data/i)).toBeInTheDocument();
+
  
 
   // after some time, the games list should be received
   expect(await screen.findByText(/a-game-id/i)).toBeInTheDocument();
-  expect(screen.queryByText(/no data/i)).not.toBeInTheDocument();
   expect(screen.queryByText(/Fetching data\.\.\./i)).not.toBeInTheDocument();
 });
+
+test('GameList component should manage data fetch errors', async () => {
+  //@ts-ignore
+  server.use(errorHandlers);
+  renderWithProviders(<GameList />);
+  screen.logTestingPlaygroundURL()
+  expect(await screen.findByText(/Something went wrong/i)).toBeInTheDocument();
+})
