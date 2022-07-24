@@ -12,7 +12,7 @@ export const GameList = () => {
   }
 
   if (error) {
-    console.log("ERROR", error)
+    console.log('ERROR', error);
     return <span>Something went wrong</span>;
   }
 

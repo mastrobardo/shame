@@ -40,6 +40,5 @@ test('GameList component should manage data fetch errors', async () => {
   //@ts-ignore
   server.use(errorHandlers);
   renderWithProviders(<GameList />);
-  screen.logTestingPlaygroundURL()
   expect(await screen.findByText(/Something went wrong/i)).toBeInTheDocument();
-})
+});
