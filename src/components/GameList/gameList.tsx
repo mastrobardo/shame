@@ -1,6 +1,8 @@
+import { IGame } from '@interfaces/game.interface';
 import {
   useGetGamesQuery,
 } from '@service/data.slice';
+import { GameItem } from './GameItem/gameItem';
 
 import './gameList.style.scss';
 
@@ -23,7 +25,7 @@ export const GameList = () => {
   
 
   return (<div>
-        {data?.map((ele, idx) => <span key={idx}>{ele.id}</span>)}
+        {data?.map((ele: IGame) => <GameItem {...ele} key={ele.id} />)}
     </div>);
 
 };
