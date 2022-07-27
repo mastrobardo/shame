@@ -18,7 +18,9 @@
         "src/assets/*"
       ],
       "@utils/*": [
-        "src/utils/*"
+        "src/utils/*"      ],
+      "@hooks/*": [
+        "src/hooks/*"
       ]
     }
   }
