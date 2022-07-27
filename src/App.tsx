@@ -4,6 +4,7 @@ import { GameDetailPage } from '@pages/GamePage';
 import { Home } from '@pages/Home';
 
 const App = () => {
+  
   return (
     <BrowserRouter>
       <div className="container">
