@@ -1,7 +1,8 @@
-import { configureStore, MiddlewareArray, combineReducers, PreloadedState, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore, combineReducers, PreloadedState } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 import { gameApi } from '@service/data.slice';
 
-import logger from 'redux-logger';
+//import logger from 'redux-logger';
 
 const rootReducer = combineReducers({
   [gameApi.reducerPath]: gameApi.reducer,
@@ -11,7 +12,7 @@ export const setupStore = function (preloadedState?: PreloadedState<RootState>) 
   return configureStore({
     reducer: rootReducer,
     //@ts-ignore
-    middleware: new MiddlewareArray().concat(getDefaultMiddleware(), gameApi.middleware, logger),
+    middleware:(getDefaultMiddleware) => getDefaultMiddleware().concat(gameApi.middleware),
     devTools: process.env.NODE_ENV !== 'production',
     preloadedState,
   });
@@ -20,3 +21,5 @@ export const setupStore = function (preloadedState?: PreloadedState<RootState>) 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
 export type AppDispatch = AppStore['dispatch'];
+
+export const useAppDispatch: () => AppDispatch = useDispatch;
