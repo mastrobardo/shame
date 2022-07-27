@@ -4,4 +4,8 @@ export interface IGame {
   tags: Array<string>;
   provider: string;
   gameType: string;
+  parentRef: any;
+  styles?: React.CSSProperties;
 }
+
+

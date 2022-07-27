@@ -1,0 +1,356 @@
+{
+  "gameApi": {
+    "queries": {
+      "getGames(undefined)": {
+        "status": "fulfilled",
+        "endpointName": "getGames",
+        "requestId": "42LWP3bbzoTv0jIJ5CWhg",
+        "startedTimeStamp": 1658933601725,
+        "data": [
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          },
+          {
+            "id": "relax_skywind_rlx.sw.sw.sw_boofgemenobufe",
+            "name": "Book of Gems Megaways",
+            "tags": [
+              "High Volatility",
+              "Free Spins Feature",
+              "Megaways",
+              "Special Wilds",
+              "Expanding Wilds",
+              "Multiplying Wilds",
+              "Egypt",
+              "Gems",
+              "Scatter",
+              "Skywind"
+            ],
+            "provider": "Skywind",
+            "gameType": "video_slots"
+          }
+        ]
+      }
+    }
+  }
+}

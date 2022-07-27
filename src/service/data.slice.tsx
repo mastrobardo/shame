@@ -16,6 +16,8 @@ export const gameApi = createApi({
     }),
   }),
 });
+
+export const gamesSelector = gameApi.endpoints.getGames.select();
  
 export const {
   useGetGamesQuery,

@@ -1,0 +1,15 @@
+.gameList {
+
+    overflow: scroll;
+    overflow-x: hidden;
+    width: max-content !important;
+    &::-webkit-scrollbar {
+        display:none;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        width: 100% !important;
+    }
+}
