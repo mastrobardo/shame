@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {IGame} from '@interfaces/game.interface';
+import { IGame } from '@interfaces/game.interface';
 
 const baseUrl: string = 'http://localhost:9000/';
+
 export const gameApi = createApi({
   reducerPath: 'gameApi',
   baseQuery: fetchBaseQuery({

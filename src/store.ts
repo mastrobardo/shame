@@ -1,11 +1,13 @@
 import { configureStore, combineReducers, PreloadedState } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { gameApi } from '@service/data.slice';
+import search from '@service/search.slice';
 
 //import logger from 'redux-logger';
 
 const rootReducer = combineReducers({
   [gameApi.reducerPath]: gameApi.reducer,
+  search: search,
 });
 
 export const setupStore = function (preloadedState?: PreloadedState<RootState>) {
