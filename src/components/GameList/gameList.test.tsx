@@ -7,7 +7,7 @@ describe('GameList', () => {
 
     const { container } = renderWithProviders(<GameList />, {
       //@ts-ignore
-      preloadedState: mockState
+      preloadedState: mockState,
     });
 
     expect(container.getElementsByClassName('gameItem').length).toEqual(4);
