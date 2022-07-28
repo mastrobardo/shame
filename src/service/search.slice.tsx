@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface ISearchState {
   value: string
@@ -18,7 +18,13 @@ const searchSlice = createSlice({
       state.value = '';
     },
   },
-})
+});
 
-export const { setSearchValue, clearSearchValue } = searchSlice.actions
-export default searchSlice.reducer
+export const selectFilterValue = (state: ISearchState) =>{
+  console.log(state, 'state');
+  //@ts-ignore
+  return  state.search.value;
+};
+
+export const { setSearchValue, clearSearchValue } = searchSlice.actions;
+export default searchSlice.reducer;
