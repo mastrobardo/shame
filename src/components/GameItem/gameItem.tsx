@@ -7,6 +7,7 @@ export const BASE_GAME_ITEM_DIMENSIONS = {
 };
 
 export const GameItem = ({ id, name, tags, provider, gameType, styles }: IGame) => {
+  if (!name) return null;
   return (
         <div className='gameItem' style={styles}>
             <div style={{ width:349, outline: '1px solid black', height: 220}}>
@@ -14,7 +15,7 @@ export const GameItem = ({ id, name, tags, provider, gameType, styles }: IGame) 
                 <span>{name}</span>
                 <span>{provider}</span>
                 <span>{gameType}</span>
-                <span>{tags.join(',')}</span>
+                <span>{tags?.join(',')}</span>
             </div>
         </div>);
 };

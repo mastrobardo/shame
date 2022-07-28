@@ -1,6 +1,7 @@
 import React from 'react';
 import { GameList } from '@components/GameList/gameList';
 import { useGetGamesQuery } from '@service/data.slice';
+import { Header } from '@components/Header/Header';
 
 export const Home = () => {
   const { data, error, isLoading } = useGetGamesQuery();
@@ -19,7 +20,7 @@ export const Home = () => {
   
   return (
     <div>
-      <h1>Redux + TypeScript Game Lobby</h1>
+      <Header />
       <GameList />
     </div>
   );

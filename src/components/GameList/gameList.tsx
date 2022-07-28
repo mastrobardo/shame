@@ -2,7 +2,7 @@ import { GameItem, BASE_GAME_ITEM_DIMENSIONS } from '@components/GameItem/gameIt
 import { useAppSelector } from '@hooks/app.hook';
 import useWindowDimensions from '@hooks/windowSize.hook';
 import {
-  gamesSelector,
+  gameFilteredSelector,
 } from '@service/data.slice';
 import { useEffect, useMemo, useState } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
@@ -20,21 +20,22 @@ type TCell = {
 const CELL_GAP = 48;
 
 export const GameList = () => {
-
-  const { data: gameList } = useAppSelector(gamesSelector);
+  //@ts-ignore
+  const gameList = useAppSelector(gameFilteredSelector);
   const { width } = useWindowDimensions();
   const [columnCount, setColumnCount] = useState<number>(1);
+  const [visible, setVisible] = useState(false);
+
 
   useEffect(() => {
+  
+    setVisible(!!gameList.length);
+
     if (width) {
       setColumnCount(Math.floor(window.innerWidth / BASE_GAME_ITEM_DIMENSIONS.width));
-      //@ts-ignore
-      /* const innerDiv: HTMLElement = document.querySelector('.gamelist > div');
-      if(innerDiv) {
-        innerDiv.style.width = window.innerWidth + 'px'
-      }*/
     }
-  }, [window.innerWidth, width]);
+
+  }, [window.innerWidth, width, gameList]);
 
 
   const Cell = useMemo(() => ({ columnIndex, rowIndex, style }: TCell) => {
@@ -47,8 +48,12 @@ export const GameList = () => {
     };
     const props = { ...gameList[columnIndex] };
     return <GameItem {...props} styles={myStyles} key={`${columnIndex}${rowIndex}`} />;
+
   }, [gameList]);
 
+  if (!visible) {
+    return <span>NO RESULTS</span>;
+  }
 
   return (
     <div className='gameList__container'>
