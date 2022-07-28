@@ -1,6 +1,7 @@
 import { GameItem } from './gameItem';
 import { render, screen } from '@testing-library/react';
 import { IGame } from '@interfaces/game.interface';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('GameItem', () => {
   const gameItemProps: IGame = {
@@ -12,7 +13,7 @@ describe('GameItem', () => {
     parentRef: null,
   };
   test('it should render the passed props', () => {
-    render(<GameItem {...gameItemProps} />);
+    render(<BrowserRouter><GameItem {...gameItemProps} /></BrowserRouter>);
 
     expect(screen.queryByText(/an-id/i)).toBeInTheDocument();
     expect(screen.queryByText(/some name/i)).toBeInTheDocument();
@@ -28,8 +29,8 @@ describe('GameItem', () => {
       gameType: 'somegametype',
       provider: 'agreatprovider',
       parentRef: null,
-    }
-    const { container } = render(<GameItem {...propsWitoutName} />);
-    expect(container).toBeEmptyDOMElement()
+    };
+    const { container } = render(<BrowserRouter><GameItem {...propsWitoutName} /></BrowserRouter>);
+    expect(container).toBeEmptyDOMElement();
   });
 });

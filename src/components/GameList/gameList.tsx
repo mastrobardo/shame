@@ -44,7 +44,7 @@ export const GameList = () => {
     }
     const myStyles: React.CSSProperties = {
       ...style,
-      // left: columnIndex === 0 ? Number(style.left) + CELL_GAP / 2 : Number(style.left) + columnIndex * CELL_GAP / 2,
+      top: rowIndex === 0 ?  Number(style.top) + CELL_GAP / 2 :  Number(style.top),
     };
     const props = { ...gameList[columnIndex] };
     return <GameItem {...props} styles={myStyles} key={`${columnIndex}${rowIndex}`} />;
