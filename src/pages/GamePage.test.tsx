@@ -5,7 +5,7 @@ import { screen } from '@testing-library/react';
 import { renderWithProviders } from '@utils/test-utils';
 import { GameDetailPage } from './GamePage';
 
-const gameId = 'relax_skywind_rlx.sw.sw.sw_thlaki'
+const gameId = 'relax_skywind_rlx.sw.sw.sw_thlaki';
 export const handlers = [
   rest.get(`http://localhost:9000/games/${gameId}`, (req, res, ctx) => {
     return res(ctx.json([{name: 'Book of Gems Megaways'}]), ctx.delay(150));

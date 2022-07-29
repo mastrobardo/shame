@@ -28,7 +28,7 @@ export const gameFilteredSelector = createSelector(
   (games, filterValue) => {
     if (!games || !games?.data) return [];
     if (!filterValue) return games.data;
-    return games.data.filter((game: IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase())) || []; 
+    return games.data.filter((game: IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase())).map((ele:IGame) => ele.colorIndex = Math.floor(Math.random() * 5)) || []; 
   },
 );
 

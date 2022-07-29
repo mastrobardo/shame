@@ -1,0 +1,17 @@
+.lightning {
+    position: relative;
+    & > svg {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    &__color, &__pattern {
+        top: -8px !important;
+        left: -8px !important;
+    }
+    &__color {
+        position: absolute;
+        z-index: 9;
+    }
+}

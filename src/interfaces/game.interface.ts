@@ -6,6 +6,7 @@ export interface IGame {
   gameType: string;
   parentRef: any;
   styles?: React.CSSProperties;
+  colorIndex: number;
 }
 
 
