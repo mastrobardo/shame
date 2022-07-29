@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-npx json-server --watch data/games.json --port 9000
+nohup npx json-server --watch data/games.json --port 9000 </dev/null &>/dev/null &

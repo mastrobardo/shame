@@ -2,6 +2,8 @@ import { useAppDispatch } from '@hooks/app.hook';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useDebounce } from 'usehooks-ts';
 import { setSearchValue, clearSearchValue } from '@service/search.slice';
+import { ReactComponent as Glass } from '@assets/svg/magnifying.svg';
+import './Search.style.scss';
 
 export const Search = () => {
   const [value, setValue] = useState<string>('');
@@ -14,6 +16,7 @@ export const Search = () => {
 
   const handleClearInput = () => {
     dispatch(clearSearchValue());
+    setValue('');
   };
 
   useEffect(() => {
@@ -22,8 +25,9 @@ export const Search = () => {
 
   return (
     <div className='search-box'>
-      <input role={'input'} type="text" value={value} onChange={handleChange} />
-      <button onClick={handleClearInput}>X</button>
+      <Glass className={'search-box__icon'}/>
+      <input className={'search-box__input'} role={'input'} type="text" value={value} placeholder={'Search'} onChange={handleChange} />
+      {!!value && <a className={'search-box__clearbutton'} onClick={handleClearInput}>X</a>}
     </div>
   );
 };

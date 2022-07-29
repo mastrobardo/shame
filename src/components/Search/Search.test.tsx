@@ -15,7 +15,7 @@ describe.only('Search', () => {
     setTimeout(() => {
       //this field is debounced
       expect(store.getState().search.value).toEqual('Tiger');
-    }, 1000)
+    }, 1000);
     
   });
 });

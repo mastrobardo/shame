@@ -25,14 +25,13 @@ export const gamesSelector = gameApi.endpoints.getGames.select();
 export const gameFilteredSelector = createSelector(
   gamesSelector,
   selectFilterValue,
-  (games, filterValue) => { 
+  (games, filterValue) => {
     if (!games || !games?.data) return [];
     if (!filterValue) return games.data;
-    console.log(games.data.filter((game:IGame) => game.name.includes(filterValue)));
-    return games.data.filter((game:IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase()));
+    return games.data.filter((game: IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase())) || []; 
   },
 );
- 
+
 export const {
   useGetGamesQuery,
   useGetGameByIdQuery,
