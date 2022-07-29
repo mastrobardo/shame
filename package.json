@@ -32,7 +32,9 @@
     "eject": "react-app-rewired eject",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "fix": "eslint src --ext .js,.jsx,.ts,.tsx  --fix",
-    "start:server": "./start-data-server.sh"
+    "start:server": "./start-data-server.sh",
+    "cosmos": "cross-env FAST_REFRESH=false cosmos",
+    "cosmos:export": "cross-env FAST_REFRESH=false cosmos-export"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -61,6 +63,7 @@
     "@types/testing-library__react": "^10.2.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "cra-template-typescript-redux": "0.3.13",
+    "cross-env": "^7.0.3",
     "cypress": "^10.3.0",
     "msw": "^0.44.2",
     "react-app-rewire-alias": "^1.1.7",
