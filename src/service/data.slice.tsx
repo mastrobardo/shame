@@ -35,7 +35,7 @@ export const gameFilteredSelector = createSelector(
         splicedTags.push(`+ ${ele.tags.length - 3} More` );
         ele.splicedTags = splicedTags;
       } 
-      if(!ele.splicedTags) ele.splicedTags = []
+      if (!ele.splicedTags) ele.splicedTags = [];
       return ele;
     });
 
