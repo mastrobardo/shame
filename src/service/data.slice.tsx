@@ -3,7 +3,9 @@ import { IGame } from '@interfaces/game.interface';
 import { createSelector } from '@reduxjs/toolkit';
 import { selectFilterValue } from './search.slice';
 
-const baseUrl: string = 'https://warm-earth-61531.herokuapp.com/';
+const baseUrl: string = `${process.env.REACT_APP_API_URL}`;
+
+console.log(baseUrl);
 
 export const gameApi = createApi({
   reducerPath: 'gameApi',
