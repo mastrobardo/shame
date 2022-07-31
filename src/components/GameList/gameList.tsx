@@ -19,6 +19,12 @@ type TCell = {
 
 const CELL_GAP = 48;
 
+
+//@ts-ignore
+const arrayToMatrix = (array, columns) => Array(Math.ceil(array.length / columns)).fill('').reduce((acc, cur, index) => {
+  return [...acc, [...array].splice(index * columns, columns)];
+}, []);
+
 export const GameList = () => {
   //@ts-ignore
   const gameList = useAppSelector(gameFilteredSelector);
@@ -33,12 +39,14 @@ export const GameList = () => {
 
     if (width) {
       setColumnCount(Math.floor(window.innerWidth / BASE_GAME_ITEM_DIMENSIONS.width));
-    }
-
+    }      
   }, [window.innerWidth, width, gameList]);
 
+  const transformed:Array<any> = useMemo(() => {
+    return arrayToMatrix(gameList, columnCount);
+  }, [gameList, columnCount]);
 
-  const Cell = useMemo(() => ({ columnIndex, rowIndex, style }: TCell) => {
+  const Cell = ({ columnIndex, rowIndex, style }: TCell) => {
     if (!gameList) {
       return null;
     }
@@ -46,10 +54,11 @@ export const GameList = () => {
       ...style,
       top: rowIndex === 0 ?  Number(style.top) + CELL_GAP / 2 :  Number(style.top),
     };
-    const props = { ...gameList[columnIndex] };
-    return <GameItem {...props} styles={myStyles} key={`${columnIndex}${rowIndex}`} />;
 
-  }, [gameList]);
+    const props = transformed.length && transformed[rowIndex || 0][columnIndex] || {};
+    return <GameItem {...props} styles={myStyles} key={props.id} />;
+
+  };
 
   if (!visible) {
     return <span>NO RESULTS</span>;

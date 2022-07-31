@@ -3,7 +3,7 @@ import { IGame } from '@interfaces/game.interface';
 import { createSelector } from '@reduxjs/toolkit';
 import { selectFilterValue } from './search.slice';
 
-const baseUrl: string = 'http://localhost:9000/';
+const baseUrl: string = 'https://warm-earth-61531.herokuapp.com/';
 
 export const gameApi = createApi({
   reducerPath: 'gameApi',
@@ -13,6 +13,14 @@ export const gameApi = createApi({
   endpoints: (builder) => ({
     getGames: builder.query<IGame[], void>({
       query: () => 'games',
+      transformResponse: (response) => {
+        const gamesList = JSON.parse(JSON.stringify(response));
+        const result = gamesList.map((game: IGame) => {
+          game.colorIndex = Math.floor(Math.random() * 5);
+          return game;
+        });
+        return result;
+      },
     }),
     getGameById: builder.query<IGame, string>({
       query: (id: string) => `games/?id=${id}`,
@@ -27,8 +35,18 @@ export const gameFilteredSelector = createSelector(
   selectFilterValue,
   (games, filterValue) => {
     if (!games || !games?.data) return [];
-    if (!filterValue) return games.data;
-    return games.data.filter((game: IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase())) || []; 
+    const gamesList = JSON.parse(JSON.stringify(games.data));
+    gamesList.map((ele: IGame) => {
+      if (ele.tags && ele.tags.length > 3) {
+        const splicedTags = ele.tags.concat().splice(0, 3);
+        splicedTags.push(`+ ${ele.tags.length - 3} More`);
+        ele.splicedTags = splicedTags;
+      }
+      if (!ele.splicedTags) ele.splicedTags = [];
+      return ele;
+    });
+    if (!filterValue) return gamesList;
+    return gamesList.filter((game: IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase())) || [];
   },
 );
 

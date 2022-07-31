@@ -19,7 +19,7 @@ export const Home = () => {
   }
   
   return (
-    <div>
+    <div className='page'>
       <Header />
       <GameList />
     </div>

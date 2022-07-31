@@ -10,12 +10,11 @@ describe('GameItem', () => {
     tags: ['some', 'tags'],
     gameType: 'somegametype',
     provider: 'agreatprovider',
-    parentRef: null,
+    colorIndex: 1,
   };
   test('it should render the passed props', () => {
     render(<BrowserRouter><GameItem {...gameItemProps} /></BrowserRouter>);
 
-    expect(screen.queryByText(/an-id/i)).toBeInTheDocument();
     expect(screen.queryByText(/some name/i)).toBeInTheDocument();
     expect(screen.queryByText(/somegametype/i)).toBeInTheDocument();
     expect(screen.queryByText(/agreatprovider/i)).toBeInTheDocument();
@@ -28,7 +27,7 @@ describe('GameItem', () => {
       tags: ['some', 'tags'],
       gameType: 'somegametype',
       provider: 'agreatprovider',
-      parentRef: null,
+      colorIndex: 1,
     };
     const { container } = render(<BrowserRouter><GameItem {...propsWitoutName} /></BrowserRouter>);
     expect(container).toBeEmptyDOMElement();

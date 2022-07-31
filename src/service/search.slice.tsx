@@ -21,7 +21,6 @@ const searchSlice = createSlice({
 });
 
 export const selectFilterValue = (state: ISearchState) =>{
-  console.log(state, 'state');
   //@ts-ignore
   return  state.search.value;
 };
