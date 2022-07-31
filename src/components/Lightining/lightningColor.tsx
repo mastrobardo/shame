@@ -10,8 +10,7 @@ const colorsArray: Array<Array<string>> = [
 ];
 
 export const LightningColor = ({ id, colorIndex }: TLightning) => {
-
-  const [idx] = useState(colorIndex);
+  const [idx] = useState<number>(colorIndex || 0);
 
   const url = `url(#${id})`;
 

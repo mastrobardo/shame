@@ -3,7 +3,7 @@ import { IGame } from '@interfaces/game.interface';
 import { createSelector } from '@reduxjs/toolkit';
 import { selectFilterValue } from './search.slice';
 
-const baseUrl: string = 'http://localhost:9000/';
+const baseUrl: string = 'https://warm-earth-61531.herokuapp.com/';
 
 export const gameApi = createApi({
   reducerPath: 'gameApi',
@@ -45,7 +45,6 @@ export const gameFilteredSelector = createSelector(
       if (!ele.splicedTags) ele.splicedTags = [];
       return ele;
     });
-
     if (!filterValue) return gamesList;
     return gamesList.filter((game: IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase())) || [];
   },

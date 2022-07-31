@@ -5,20 +5,23 @@ import { screen } from '@testing-library/react';
 import { renderWithProviders } from '@utils/test-utils';
 import { GameDetailPage } from './GamePage';
 
-const gameId = 'relax_skywind_rlx.sw.sw.sw_thlaki';
+//const gameId = 'relax_skywind_rlx.sw.sw.sw_thlaki';
+
 export const handlers = [
-  rest.get(`http://localhost:9000/games/${gameId}`, (req, res, ctx) => {
+  rest.get('http://localhost:9000/games/', (req, res, ctx) => {
+    
+    //const id = req.url.searchParams.getAll(gameId);
     return res(ctx.json([{name: 'Book of Gems Megaways'}]), ctx.delay(150));
   }),
 ];
 
 export const errorHandlers = [
-  rest.get('http://localhost:9000/games/inesistentId', (req, res, ctx) => res(ctx.status(500), ctx.json(null))),
+  rest.get('http://localhost:9000/games/?id=inesistentId', (req, res, ctx) => res(ctx.status(500), ctx.json(null))),
 ];
 
 const server = setupServer(...handlers);
 
-beforeAll(() => server.listen());
+beforeAll(() => server.listen({ onUnhandledRequest: 'bypass' }));
 
 afterEach(() => server.resetHandlers());
 
@@ -34,7 +37,7 @@ test('Game Page component should manage data fetch states', async () => {
   expect(screen.queryByText(/Fetching data\.\.\./i)).not.toBeInTheDocument();
 });
 
-test('HomePage component should manage data fetch errors', async () => {
+test('GamePage component should manage data fetch errors', async () => {
   //@ts-ignore
   server.use(errorHandlers);
   renderWithProviders(<GameDetailPage />);

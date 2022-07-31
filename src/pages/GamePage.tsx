@@ -1,5 +1,6 @@
 import { useGetGameByIdQuery } from '@service/data.slice';
 import { useParams } from 'react-router-dom';
+import './page.style.scss';
 
 type ParamTypes = {
   gameId: string;
@@ -15,6 +16,7 @@ export const GameDetailPage = () => {
   }
 
   if (error) {
+    console.log(error);
     return <span>Something went wrong</span>;
   }
 
@@ -24,15 +26,17 @@ export const GameDetailPage = () => {
 
   const gameDetails = data?.[0];
 
+  if (!gameDetails) {
+    return <span>Nothing to see here!</span>;
+  }
   return (
-    <>
-      <div>
-        <span>{gameId}</span>
-        <h1>{gameDetails?.name}</h1>
-        <span>{gameDetails?.provider}</span>
-        <span>{gameDetails?.gameType}</span>
-        <span>{gameDetails?.tags?.join(',')}</span>
+      <div className='page'>
+        <div className='game-page'>
+          <h1 className='game-page__title'>{gameDetails?.name}</h1>
+          <span>{gameDetails?.provider}</span>
+          <span>{gameDetails?.gameType}</span>
+          <span>{gameDetails?.tags?.join(',')}</span>
+        </div>
       </div>
-    </>
   );
 };
