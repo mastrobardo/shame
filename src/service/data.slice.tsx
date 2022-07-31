@@ -27,8 +27,20 @@ export const gameFilteredSelector = createSelector(
   selectFilterValue,
   (games, filterValue) => {
     if (!games || !games?.data) return [];
-    if (!filterValue) return games.data;
-    return games.data.filter((game: IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase())).map((ele:IGame) => ele.colorIndex = Math.floor(Math.random() * 5)) || []; 
+    const gamesList = JSON.parse(JSON.stringify(games.data));
+    gamesList.map((ele:IGame) => {
+      ele.colorIndex = Math.floor(Math.random() * 5);
+      if (ele.tags && ele.tags.length > 3) {
+        const splicedTags = ele.tags.concat().splice(0, 3);
+        splicedTags.push(`+ ${ele.tags.length - 3} More` );
+        ele.splicedTags = splicedTags;
+      } 
+      if(!ele.splicedTags) ele.splicedTags = []
+      return ele;
+    });
+
+    if (!filterValue) return gamesList;
+    return gamesList.filter((game: IGame) => game.name.toLowerCase().includes(filterValue.toLowerCase())) || [];
   },
 );
 
