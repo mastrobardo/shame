@@ -22,7 +22,6 @@ export const GameItem = ({ id, name, splicedTags, provider, gameType, colorIndex
             <span className='gameItem__provider'>{gameType}<br/>by {provider}</span>
           </div>
           <MinifiedTags tags={splicedTags!} />
-
         </Link>
       </div>
     </div>

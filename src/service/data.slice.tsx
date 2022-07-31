@@ -13,6 +13,14 @@ export const gameApi = createApi({
   endpoints: (builder) => ({
     getGames: builder.query<IGame[], void>({
       query: () => 'games',
+      transformResponse: (response) => {
+        const gamesList = JSON.parse(JSON.stringify(response));
+        const result = gamesList.map((game: IGame) => {
+          game.colorIndex = Math.floor(Math.random() * 5);
+          return game;
+        });
+        return result;
+      },
     }),
     getGameById: builder.query<IGame, string>({
       query: (id: string) => `games/?id=${id}`,
@@ -28,13 +36,12 @@ export const gameFilteredSelector = createSelector(
   (games, filterValue) => {
     if (!games || !games?.data) return [];
     const gamesList = JSON.parse(JSON.stringify(games.data));
-    gamesList.map((ele:IGame) => {
-      ele.colorIndex = Math.floor(Math.random() * 5);
+    gamesList.map((ele: IGame) => {
       if (ele.tags && ele.tags.length > 3) {
         const splicedTags = ele.tags.concat().splice(0, 3);
-        splicedTags.push(`+ ${ele.tags.length - 3} More` );
+        splicedTags.push(`+ ${ele.tags.length - 3} More`);
         ele.splicedTags = splicedTags;
-      } 
+      }
       if (!ele.splicedTags) ele.splicedTags = [];
       return ele;
     });
