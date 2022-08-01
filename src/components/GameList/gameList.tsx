@@ -38,7 +38,7 @@ export const GameList = () => {
     setVisible(!!gameList.length);
 
     if (width) {
-      setColumnCount(Math.floor(window.innerWidth / BASE_GAME_ITEM_DIMENSIONS.width));
+      setColumnCount(Math.max(1, Math.floor(window.innerWidth / BASE_GAME_ITEM_DIMENSIONS.width)));
     }      
   }, [window.innerWidth, width, gameList]);
 
@@ -54,7 +54,7 @@ export const GameList = () => {
       ...style,
       top: rowIndex === 0 ?  Number(style.top) + CELL_GAP / 2 :  Number(style.top),
     };
-
+    
     const props = transformed.length && transformed[rowIndex || 0][columnIndex] || {};
     return <GameItem {...props} styles={myStyles} key={props.id} />;
 
@@ -73,7 +73,7 @@ export const GameList = () => {
         height={800}
         rowCount={(gameList?.length || 500) / columnCount}
         rowHeight={() => BASE_GAME_ITEM_DIMENSIONS.height + CELL_GAP}
-        width={window.innerWidth}
+        width={414}
         >
         {Cell}
       </Grid>
