@@ -15,7 +15,9 @@ export const Home = () => {
     throw new Error('Something went wrong!');
   }
 
+  if (isLoading) {
     return <Loader />
+  }
   
   return (
     <div className='page'>

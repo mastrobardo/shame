@@ -47,9 +47,7 @@ test('Game Page component should manage data fetch states', async () => {
   server.use(handlers);
   const { container } = renderWithProviders(<GameDetailPage />);
 
-  expect(screen.queryByText(/Fetching data/i)).toBeInTheDocument();
 
   const gameTitle = await container.getElementsByClassName('game-page__title');
   expect(gameTitle).toBeTruthy();
-  expect(screen.queryByText(/Fetching data\.\.\./i)).not.toBeInTheDocument();
 });
