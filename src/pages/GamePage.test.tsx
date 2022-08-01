@@ -1,7 +1,6 @@
 import React from 'react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { screen } from '@testing-library/react';
 import { renderWithProviders } from '@utils/test-utils';
 import { GameDetailPage } from './GamePage';
 import { IGame } from '@interfaces/game.interface';

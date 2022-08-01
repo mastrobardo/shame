@@ -18,7 +18,7 @@ type TCell = {
 
 const CELL_GAP:number = 48;
 
-const arrayToMatrix = (array: Array<IGame>, columns: number):Array<Array<IGame>> => Array(Math.ceil(array.length / columns)).fill('').reduce((acc, cur, index) => {
+export const arrayToMatrix = (array: Array<IGame>, columns: number):Array<Array<IGame>> => Array(Math.ceil(array.length / columns)).fill('').reduce((acc, cur, index) => {
   return [...acc, [...array].splice(index * columns, columns)];
 }, []);
 

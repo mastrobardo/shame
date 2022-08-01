@@ -22,9 +22,9 @@ export const GameDetailPage = () => {
     return <span>Something went wrong</span>;
   }
 
-    if (isLoading) {
-      return <Loader />
-    }
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const gameDetails = data?.[0];
 
