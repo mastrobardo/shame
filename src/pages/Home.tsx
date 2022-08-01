@@ -11,7 +11,7 @@ export const Home = () => {
   }
 
   if (error) {
-    return <span>Something went wrong</span>;
+    throw new Error('Something went wrong!');
   }
 
   if (isLoading) {

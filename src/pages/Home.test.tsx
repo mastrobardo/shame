@@ -11,10 +11,6 @@ export const handlers = [
   }),
 ];
 
-export const errorHandlers = [
-  rest.get('http://localhost:9000/games', (req, res, ctx) => res(ctx.status(500), ctx.json(null))),
-];
-
 const server = setupServer(...handlers);
 
 beforeAll(() => server.listen({
@@ -35,11 +31,4 @@ test('HomePage component should manage data fetch states', async () => {
   const gameList = await container.getElementsByClassName('gameList');
   expect(gameList).toBeTruthy();
   expect(screen.queryByText(/Fetching data\.\.\./i)).not.toBeInTheDocument();
-});
-
-test('HomePage component should manage data fetch errors', async () => {
-  //@ts-ignore
-  server.use(errorHandlers);
-  renderWithProviders(<Home />);
-  expect(await screen.findByText(/Something went wrong/i)).toBeInTheDocument();
 });

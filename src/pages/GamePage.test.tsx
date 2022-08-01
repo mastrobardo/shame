@@ -34,10 +34,6 @@ export const handlers = [
   }),
 ];
 
-export const errorHandlers = [
-  rest.get('http://localhost:9000/games/?id=inesistentId', (req, res, ctx) => res(ctx.status(500), ctx.json(null))),
-];
-
 const server = setupServer(...handlers);
 
 beforeAll(() => server.listen({ onUnhandledRequest: 'bypass' }));
@@ -54,14 +50,6 @@ test('Game Page component should manage data fetch states', async () => {
   expect(screen.queryByText(/Fetching data/i)).toBeInTheDocument();
 
   const gameTitle = await container.getElementsByClassName('game-page__title');
-  screen.logTestingPlaygroundURL();
   expect(gameTitle).toBeTruthy();
   expect(screen.queryByText(/Fetching data\.\.\./i)).not.toBeInTheDocument();
-});
-
-test('GamePage component should manage data fetch errors', async () => {
-  //@ts-ignore
-  server.use(errorHandlers);
-  renderWithProviders(<GameDetailPage />);
-  expect(await screen.findByText(/Something went wrong/i)).toBeInTheDocument();
 });
