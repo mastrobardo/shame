@@ -8,7 +8,6 @@ import {
 import { useEffect, useMemo, useState } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 import '../GameItem/gameItem.style.scss';
-
 import './gameList.style.scss';
 
 type TCell = {
@@ -71,7 +70,7 @@ export const GameList = () => {
         height={800}
         rowCount={(gameList?.length || 500) / columnCount}
         rowHeight={() => BASE_GAME_ITEM_DIMENSIONS.height + CELL_GAP}
-        width={414}
+        width={window.innerWidth}
         >
         {Cell}
       </Grid>
