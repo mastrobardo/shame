@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { MinifiedTags } from '@components/GameItem/gameItem.tags';
 import './page.style.scss';
 import './gamepage.style.scss';
+import { Loader } from '@components/Loader/loader';
 
 type ParamTypes = {
   gameId: string;
@@ -22,7 +23,7 @@ export const GameDetailPage = () => {
   }
 
   if (isLoading) {
-    return <span>Fetching data</span>;
+    return <Loader />;
   }
 
   const gameDetails = data?.[0];

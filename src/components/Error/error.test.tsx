@@ -3,7 +3,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorComponent } from './error';
 import '@testing-library/jest-dom';
 describe('Error Boundary', () => {
-  test('Error Boundary',async () => {
+  test('Error Boundary', async () => {
     const ThrowError = () => {
       throw new Error('Test');
     };

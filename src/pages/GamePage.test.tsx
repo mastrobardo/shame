@@ -1,7 +1,6 @@
 import React from 'react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { screen } from '@testing-library/react';
 import { renderWithProviders } from '@utils/test-utils';
 import { GameDetailPage } from './GamePage';
 import { IGame } from '@interfaces/game.interface';
@@ -47,9 +46,7 @@ test('Game Page component should manage data fetch states', async () => {
   server.use(handlers);
   const { container } = renderWithProviders(<GameDetailPage />);
 
-  expect(screen.queryByText(/Fetching data/i)).toBeInTheDocument();
 
   const gameTitle = await container.getElementsByClassName('game-page__title');
   expect(gameTitle).toBeTruthy();
-  expect(screen.queryByText(/Fetching data\.\.\./i)).not.toBeInTheDocument();
 });

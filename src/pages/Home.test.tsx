@@ -1,7 +1,6 @@
 import React from 'react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { screen } from '@testing-library/react';
 import { renderWithProviders } from '@utils/test-utils';
 import { Home } from './Home';
 
@@ -23,12 +22,7 @@ afterAll(() => server.close());
 
 test('HomePage component should manage data fetch states', async () => {
   const {container} = renderWithProviders(<Home />);
-
-  // initial state: start loading immediatly
-  expect(screen.queryByText(/Fetching data/i)).toBeInTheDocument();
-
   // after some time, the games list should be received
   const gameList = await container.getElementsByClassName('gameList');
   expect(gameList).toBeTruthy();
-  expect(screen.queryByText(/Fetching data\.\.\./i)).not.toBeInTheDocument();
 });

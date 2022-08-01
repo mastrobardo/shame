@@ -11,13 +11,11 @@ const App = () => {
     <BrowserRouter>
       <div className="container">
         <ErrorBoundary FallbackComponent={ErrorComponent!}>
-
           <Switch>
             <Route path="/" component={Home} exact />
             <Route path="/:gameId" component={GameDetailPage} />
           </Switch>
         </ErrorBoundary>
-
       </div>
     </BrowserRouter>
   );
