@@ -10,7 +10,6 @@ export const BASE_GAME_ITEM_DIMENSIONS = {
 };
 
 export const GameItem = ({ id, name, splicedTags, provider, gameType, colorIndex, styles }: IGame) => {
-  if (!name) return null;
 
   return (
     <div className='gameItem' style={styles}>

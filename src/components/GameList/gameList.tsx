@@ -1,6 +1,7 @@
 import { GameItem, BASE_GAME_ITEM_DIMENSIONS } from '@components/GameItem/gameItem';
 import { useAppSelector } from '@hooks/app.hook';
 import useWindowDimensions from '@hooks/windowSize.hook';
+import { IGame } from '@interfaces/game.interface';
 import {
   gameFilteredSelector,
 } from '@service/data.slice';
@@ -16,12 +17,9 @@ type TCell = {
   style: React.CSSProperties;
 };
 
+const CELL_GAP:number = 48;
 
-const CELL_GAP = 48;
-
-
-//@ts-ignore
-const arrayToMatrix = (array, columns) => Array(Math.ceil(array.length / columns)).fill('').reduce((acc, cur, index) => {
+const arrayToMatrix = (array: Array<IGame>, columns: number):Array<Array<IGame>> => Array(Math.ceil(array.length / columns)).fill('').reduce((acc, cur, index) => {
   return [...acc, [...array].splice(index * columns, columns)];
 }, []);
 
@@ -30,7 +28,7 @@ export const GameList = () => {
   const gameList = useAppSelector(gameFilteredSelector);
   const { width } = useWindowDimensions();
   const [columnCount, setColumnCount] = useState<number>(1);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
 
 
   useEffect(() => {
@@ -38,7 +36,7 @@ export const GameList = () => {
     setVisible(!!gameList.length);
 
     if (width) {
-      setColumnCount(Math.floor(window.innerWidth / BASE_GAME_ITEM_DIMENSIONS.width));
+      setColumnCount(Math.max(1, Math.floor(window.innerWidth / BASE_GAME_ITEM_DIMENSIONS.width)));
     }      
   }, [window.innerWidth, width, gameList]);
 
@@ -54,7 +52,7 @@ export const GameList = () => {
       ...style,
       top: rowIndex === 0 ?  Number(style.top) + CELL_GAP / 2 :  Number(style.top),
     };
-
+    
     const props = transformed.length && transformed[rowIndex || 0][columnIndex] || {};
     return <GameItem {...props} styles={myStyles} key={props.id} />;
 
@@ -73,7 +71,7 @@ export const GameList = () => {
         height={800}
         rowCount={(gameList?.length || 500) / columnCount}
         rowHeight={() => BASE_GAME_ITEM_DIMENSIONS.height + CELL_GAP}
-        width={window.innerWidth}
+        width={414}
         >
         {Cell}
       </Grid>
