@@ -3,9 +3,7 @@ import { IGame } from '@interfaces/game.interface';
 import { createSelector } from '@reduxjs/toolkit';
 import { selectFilterValue } from './search.slice';
 
-const baseUrl: string = `${process.env.REACT_APP_API_URL}`;
-
-console.log(baseUrl);
+const baseUrl: string = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}` : 'http://localhost:9000/';
 
 export const gameApi = createApi({
   reducerPath: 'gameApi',

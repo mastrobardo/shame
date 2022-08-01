@@ -17,7 +17,9 @@ export const errorHandlers = [
 
 const server = setupServer(...handlers);
 
-beforeAll(() => server.listen());
+beforeAll(() => server.listen({
+  onUnhandledRequest: 'bypass',
+}));
 
 afterEach(() => server.resetHandlers());
 
