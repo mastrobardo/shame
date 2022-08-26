@@ -10,7 +10,27 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
+ task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: '*.tgz' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy npm package'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'package.json' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy package.json'   
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+    artifactName: npm
+  displayName: 'Publish npm artifact'sk: NodeTool@0
+
+
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
@@ -18,4 +38,5 @@ steps:
 - script: |
     npm install
     npm run build
+    npm run start
   displayName: 'npm install and build'
